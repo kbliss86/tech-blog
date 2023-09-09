@@ -22,6 +22,7 @@ User.init(
             allowNull: false,
             unique: true,
             validate: {
+                isAlphanumeric: true,
                 len: [4],
             },
         },
