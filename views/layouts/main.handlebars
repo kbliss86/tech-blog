@@ -19,6 +19,8 @@
         </ul>
     </nav>
     <main>
+        {{{ body }}}
+        {{#if loggedIn}}
         <section>
             {{#each posts}}
             <article>
@@ -26,10 +28,14 @@
                 <p>{{this.post_text}}</p>
                 <p>Written by: {{this.user.username}}</p>
             </article>
-            {{else}}
-            <p>No posts yet.</p>
             {{/each}}
+            {{#unless posts}}
+            <p>No posts yet.</p>
+            {{/unless}}
         </section>
+        {{else}}
+        <p>You need to log in to view the posts.</p>
+        {{/if}}
     </main>
     <footer>
         <p>&copy; Kendall Bliss</p>

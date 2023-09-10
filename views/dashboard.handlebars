@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tech Blog</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            {{#if loggedIn}}
+            <li><a href="/logout">Logout</a></li>
+            {{else}}
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Sign Up</a></li>
+            {{/if}}
+        </ul>
+    </nav>
+    <main>
+        {{#if loggedIn}}
+        <section>
+            {{#each posts}}
+            <article>
+                <h2><a href="/post/{{this.id}}">{{this.post_title}}</a></h2>
+                <p>{{this.post_text}}</p>
+                <p>Written by: {{this.user.username}}</p>
+            </article>
+            {{/each}}
+            {{#unless posts}}
+            <p>No posts yet.</p>
+            {{/unless}}
+        </section>
+        {{else}}
+        <p>You need to log in to view the posts.</p>
+        {{/if}}
+    </main>
+    <footer>
+        <p>&copy; Kendall Bliss</p>
+    </footer>
+</body>
+</html>
