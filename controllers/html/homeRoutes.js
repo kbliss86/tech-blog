@@ -46,23 +46,23 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
-// get specific post
-router.get('/:id', async (req, res) => {
-    try {
-        const postData = await Post.findByPk(req.params.id, {
-            include: [
-                { model: User, attributes: ['username'] },
-                { model: Comment, 
-                    include: [{User, attributes: ['username'] }],
-            }
-        ]
-        });
-        const post = postData.get({ plain: true });
-        res.render('homepage', { post });
-        } catch (err) {
-            res.status(500).json(err);
-        }
-    });
+// // get specific post
+// router.get('/:id', async (req, res) => {
+//     try {
+//         const postData = await Post.findByPk(req.params.id, {
+//             include: [
+//                 { model: User, attributes: ['username'] },
+//                 { model: Comment, 
+//                     include: [{User, attributes: ['username'] }],
+//             }
+//         ]
+//         });
+//         const post = postData.get({ plain: true });
+//         res.render('homepage', { post });
+//         } catch (err) {
+//             res.status(500).json(err);
+//         }
+//     });
 
 
 module.exports = router;
