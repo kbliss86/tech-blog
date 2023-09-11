@@ -33,10 +33,12 @@ router.post('/login', async (req, res) => {
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
-            res.status(204).end();
+            res.redirect('/login');
+            // res.status(204).end();
         });
     } else {
-        res.status(404).end();
+        res.redirect('/login');
+        // res.status(404).end();
     }
 });
 
@@ -63,7 +65,7 @@ router.get ('/:id', async (req, res) => {
     }
 });
 // create new user
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
         const newUser = await User.create({
             username: req.body.username,

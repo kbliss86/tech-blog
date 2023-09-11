@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             if (response.ok) {
                 document.location.replace('/');
             } else {
-                alert(response.statusText);
+                alert('Failed to log in');
             }
         }
     };
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const password = document.querySelector('#password-signup').value.trim();
 
         if (username && password) {
-            const response = await fetch('/api/user', {
+            const response = await fetch('/api/users/signup', {
                 method: 'POST',
                 body: JSON.stringify({ username, password }),
                 headers: { 'Content-Type': 'application/json' },
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             if (response.ok) {
                 document.location.replace('/');
             } else {
-                alert(response.statusText);
+                alert('Failed to sign up');
             }
         }
     };

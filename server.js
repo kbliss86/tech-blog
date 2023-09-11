@@ -12,14 +12,18 @@ const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({ helpers});
 
+const store = new sequelizeStore({
+    db: sequelize
+});
+
+store.sync();
+
 const sess = {
     secret: 'Super secret secret',
     cookie: { maxAge: 3600000 },
     resave: false,
     saveUninitialized: true,
-    store: new sequelizeStore({
-        db: sequelize
-    })
+    store: store
 };
 
 app.use(session(sess));
@@ -32,6 +36,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
+
+app.get('/test', (req, res) => {
+    res.send('Test route from server.js');
+});
+
+// app.listen(PORT, () => console.log('Now listening'));
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log('Now listening'));
