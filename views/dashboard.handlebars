@@ -1,43 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Tech Blog</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/dashboard">Dashboard</a></li>
-            {{#if loggedIn}}
-            <li><a href="/logout">Logout</a></li>
-            {{else}}
-            <li><a href="/login">Login</a></li>
-            <li><a href="/signup">Sign Up</a></li>
-            {{/if}}
-        </ul>
-    </nav>
-    <main>
-        {{#if loggedIn}}
-        <section>
-            {{#each posts}}
-            <article>
-                <h2><a href="/post/{{this.id}}">{{this.post_title}}</a></h2>
-                <p>{{this.post_text}}</p>
-                <p>Written by: {{this.user.username}}</p>
-            </article>
-            {{/each}}
-            {{#unless posts}}
-            <p>No posts yet.</p>
-            {{/unless}}
-        </section>
+<section class="dashboard">
+    <div>
+        <h2>Your Posts</h2>
+
+        {{#if posts.length}}
+            <ul class="posts-list">
+                {{#each posts}}
+                    <li class="post">
+                        <h3>{{this.post_title}}</h3>
+                        <p>{{this.post_text}}</p>
+                        <p class="post-meta">Posted on {{format_date this.createdAt}}</p>
+                    </li>
+                {{/each}}
+            </ul>
         {{else}}
-        <p>You need to log in to view the posts.</p>
+            <p>You haven't posted anything yet.</p>
         {{/if}}
-    </main>
-    <footer>
-        <p>&copy; Kendall Bliss</p>
-    </footer>
-</body>
-</html>
+    </div>
+    <div>
+        <h2>Create a new Post</h2>
+
+        <form class="post-form" action="/api/post" method="post">
+            <textarea name="post_title" placeholder="Post Title"></textarea>
+            <textarea name="post_text" placeholder="Post Text"></textarea>
+            <input type="hidden">
+            <button type="submit">Add post</button>
+        </form>
+    </div>        
+</section>
+
+<script src="/js/dashboard.js"></script>
+<script src="/js/logout.js"></script>

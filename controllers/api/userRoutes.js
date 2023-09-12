@@ -31,6 +31,7 @@ router.post('/login', async (req, res) => {
 
 //user logout
 router.post('/logout', (req, res) => {
+    console.log("Reached the logout route");
     if (req.session.logged_in) {
         req.session.destroy(() => {
             res.redirect('/login');
