@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         commentFormHandler.addEventListener('submit', async (event) => {
             event.preventDefault();
 
-            const comment_text = document.querySelector('textarea[name="comment-body"]').value.trim();
-            const post_id = event.target.querSelector('input[name="post-id"]').value;
+            const comment_text = document.querySelector('textarea[name="comment_text"]').value.trim();
+            const post_id = event.target.querySelector('input[name="post_id"]').value;
 
             if (comment_text) {
                 const response = await fetch('/api/comments', {
@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     }
                 });
                 if (response.ok) {
+                    console.log('look at me', document.location);
                     document.location.reload();
                 } else {
                     alert(response.statusText);
