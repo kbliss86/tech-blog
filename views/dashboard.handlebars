@@ -1,31 +1,35 @@
-<section class="dashboard">
-    <div>
+<section class="container mt-5 dashboard">
+    <div class="mb-4">
         <h2>Your Posts</h2>
 
         {{#if posts.length}}
-            <ul class="posts-list">
-                {{#each posts}}
-                    <li class="post">
-                        <h3>{{this.post_title}}</h3>
-                        <p>{{this.post_text}}</p>
-                        <p class="post-meta">Posted on {{format_date this.createdAt}}</p>
-                    </li>
-                {{/each}}
-            </ul>
+        <ul class="list-group posts-list">
+            {{#each posts}}
+            <li class="post">
+                <h3 class="mb-2">{{this.post_title}}</h3>
+                <p>{{this.post_text}}</p>
+                <p class="post-meta">Posted on {{format_date this.createdAt}}</p>
+            </li>
+            {{/each}}
+        </ul>
         {{else}}
-            <p>You haven't posted anything yet.</p>
+        <p class="alert alert.info">You haven't posted anything yet.</p>
         {{/if}}
     </div>
     <div>
         <h2>Create a new Post</h2>
 
         <form class="post-form" action="/api/post" method="post">
-            <textarea name="post_title" placeholder="Post Title"></textarea>
+            <div class="mb-3">
+                <textarea name="post_title" placeholder="Post Title"></textarea>
+            </div>
+            <div class="mb-3"></div>
             <textarea name="post_text" placeholder="Post Text"></textarea>
-            <input type="hidden">
-            <button type="submit">Add post</button>
-        </form>
-    </div>        
+    </div>
+    <input type="hidden">
+    <button type="submit" class="btn btn-primary">Add post</button>
+    </form>
+    </div>
 </section>
 
 <script src="/js/dashboard.js"></script>

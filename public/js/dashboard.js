@@ -1,6 +1,7 @@
-document.addEventListener('DOMContentLoaded',  (event) => {
+// Initiate the dashboard page
+document.addEventListener('DOMContentLoaded', (event) => {
     const dashboardHandler = document.querySelector('.post-form');
-
+    // This is the event listener for the form that will create a new post
     if (dashboardHandler) {
         dashboardHandler.addEventListener('submit', async (event) => {
             event.preventDefault();

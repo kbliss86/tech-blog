@@ -1,8 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Post extends Model {}
-
+class Post extends Model { }
+// This is the model for the Post table in the database
 Post.init(
     {
         id: {
@@ -36,7 +36,7 @@ Post.init(
                 onDelete: 'CASCADE'
             }
         },
-        
+
     },
     {
         sequelize,

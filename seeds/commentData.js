@@ -1,5 +1,5 @@
 const { Comment } = require('../models');
-
+//seed data for the comment table
 const commentData = [
     {
         comment_text: 'This is a great post!',
