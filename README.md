@@ -2,7 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Screenshot
-![Tech Blog Preview](/assets/ecommerce-backend.gif)
+![Tech Blog Preview](/public/images/techblog-screenshot.png)
 
 
 ## Description
@@ -35,4 +35,4 @@ https://opensource.org/licenses/MIT
 ## Links
 Git Hub: https://github.com/kbliss86/tech-blog
 
-Heroku Deployment: 
+Heroku Deployment: https://kbliss-tech-blog-b4fefef9a7ce.herokuapp.com/
