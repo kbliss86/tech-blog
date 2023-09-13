@@ -37,12 +37,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-app.get('/test', (req, res) => {
-    res.send('Test route from server.js');
-});
-
-// app.listen(PORT, () => console.log('Now listening'));
-
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log('Now listening'));
     console.log(`Server started on http://localhost:${PORT}`);
