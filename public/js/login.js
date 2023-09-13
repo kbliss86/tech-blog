@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     //signup form handler
     const signupFormHandler = async (event) => {
+        console.log('signupFormHandler Function');
         event.preventDefault();
         // Collect values from the signup form
         const username = document.querySelector('#username-signup').value.trim();
@@ -38,8 +39,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
             });
 
             if (response.ok) {
+                console.log('response.ok');
                 document.location.replace('/home');
             } else {
+                console.log('Failed to sign up');
                 alert('Failed to sign up');
             }
         }
