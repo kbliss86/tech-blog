@@ -31,15 +31,12 @@ router.post('/login', async (req, res) => {
 
 //user logout
 router.post('/logout', (req, res) => {
-    console.log("Reached the logout route");
     if (req.session.logged_in) {
         req.session.destroy(() => {
             res.redirect('/home/login');
-            // res.status(204).end();
         });
     } else {
         res.redirect('/home/login');
-        // res.status(404).end();
     }
 });
 
@@ -53,7 +50,7 @@ router.get('/', async (req, res) => {
     }
 });
 //get specific user
-router.get ('/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const userData = await User.findByPk(req.params.id);
         if (!userData) {

@@ -1,5 +1,6 @@
+//this file is for the login and signup forms
 document.addEventListener('DOMContentLoaded', (event) => {
-
+    //login form handler
     const loginFormHandler = async (event) => {
         event.preventDefault();
 
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     //signup form handler
     const signupFormHandler = async (event) => {
         event.preventDefault();
-
+        // Collect values from the signup form
         const username = document.querySelector('#username-signup').value.trim();
         const password = document.querySelector('#password-signup').value.trim();
 
@@ -43,12 +44,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
             }
         }
     };
-
+    //event listeners for the login and signup forms
     if (document.querySelector('.login-form')) {
         document
             .querySelector('.login-form')
             .addEventListener('submit', loginFormHandler);
     }
+    //event listeners for the signup form
     if (document.querySelector('.signup-form')) {
         document
             .querySelector('.signup-form')

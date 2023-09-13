@@ -1,13 +1,10 @@
+// Purpose: Middleware to check if user is logged in
 const withAuth = (req, res, next) => {
-  console.log("withAuth ln 2");
-    if (!req.session.logged_in) {
-      console.log("with auth ln 4");
-      res.redirect('/home/login');
-    } else {
-      console.log("with auth ln 7");
-      next();
-    }
-  };
-  
-  module.exports = withAuth;
-  
+  if (!req.session.logged_in) {
+    res.redirect('/home/login');
+  } else {
+    next();
+  }
+};
+
+module.exports = withAuth;

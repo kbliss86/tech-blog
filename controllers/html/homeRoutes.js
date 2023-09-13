@@ -6,7 +6,6 @@ const withAuth = require('../../utils/auth');
 
 // Get login page
 router.get('/login', async (req, res) => {
-    console.log("login route");
     if (req.session.logged_in) {
         res.redirect('/');
         return;
@@ -15,7 +14,6 @@ router.get('/login', async (req, res) => {
 });
 // Get signup page
 router.get('/signup', async (req, res) => {
-    console.log("signup route");
     if (req.session.logged_in) {
         res.redirect('/');
         return;
@@ -25,7 +23,6 @@ router.get('/signup', async (req, res) => {
 
 //prevent non logged in users from viewing the homepage
 router.get('/', withAuth, async (req, res) => {
-    console.log("homepage route");
     try {
         const userData = await User.findAll({
             attributes: { exclude: ['password'] },

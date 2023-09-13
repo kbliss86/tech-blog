@@ -1,3 +1,4 @@
+// Purpose: to seed the database with data
 const sequelize = require('../config/connection');
 const postData = require('./postData');
 const userData = require('./userData');

@@ -1,4 +1,5 @@
 const { Post } = require('../models');
+//seed data for the post table
 const postData = [
     {
         post_title: 'Why MVC is Essential for Web Development',

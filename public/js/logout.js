@@ -1,3 +1,4 @@
+// Initiate logout process
 const logout = async () => {
     console.log('logout function')
     const response = await fetch('/api/users/logout', {
@@ -6,7 +7,6 @@ const logout = async () => {
     });
     console.log('response: ', response)
     if (response.ok) {
-        console.log('logged out - redirecting to login page');
         document.location.replace('/home');
     } else {
         alert(response.statusText);

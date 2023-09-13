@@ -1,34 +1,44 @@
 {{!-- display posts --}}
-<article>
-    <h2>{{post.post_title}}</h2>
-    <p>{{post.post_text}}</p>
-    <p>Written by: {{post.user.username}} on {{format_date post.createdAt}}</p>
-</article>
-
-{{!-- comments --}}
-
-<section>
-    <h3>Comments</h3>
-    {{#each post.comments}}
-        <div class="comment">
-            <p>{{this.comment_text}}</p>
-            <p>Written by: {{this.user.username}} on {{format_date this.created_At}}</p>
+<div class="container mt-4">
+    <article class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">{{post.post_title}}</h2>
+            <p class="card-text">{{post.post_text}}</p>
+            <p><small class="text-muted">Written by: {{post.user.username}} on {{format_date post.createdAt}}</small>
+            </p>
         </div>
-    {{/each}}
-</section>
-    
+    </article>
+
+    {{!-- comments --}}
+
+    <section>
+        <h3 class="mb-3">Comments</h3>
+        {{#each post.comments}}
+        <div class="card mb-3 comment">
+            <div class="card-body">
+                <p class="card-text">{{this.comment_text}}</p>
+                <p><small class="text-muted">Written by: {{this.user.username}} on {{format_date
+                        this.created_At}}</small></p>
+            </div>
+        </div>
+        {{/each}}
+    </section>
+
     {{!-- add comment --}}
     {{!-- only logged in users can comment --}}
     {{#if logged_in}}
-        <section>
-            <h3>Add a comment</h3>
-            <form class="comment-form" action="/api/comments" method="post">
-                <textarea name="comment_text" placeholder="Comment text"></textarea>
-                <input type="hidden" name="post_id" value="{{post.id}}">
-                <button type="submit">Add comment</button>
-            </form>
-        </section>
+    <section>
+        <h3 class="mb-3">Add a comment</h3>
+        <form class="comment-form" action="/api/comments" method="post">
+            <div class="mb-3">
+                <textarea class="form-control" name="comment_text" placeholder="Comment text"></textarea>
+            </div>
+            <input type="hidden" name="post_id" value="{{post.id}}">
+            <button class="btn btn-primary" type="submit">Add comment</button>
+        </form>
+    </section>
     {{else}}
-        <p>You need to log in to comment.</p>
+    <p class="mt-4">You need to log in to comment.</p>
     {{/if}}
+</div>
 <script src="/js/post.js"></script>
