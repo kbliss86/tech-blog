@@ -2,8 +2,6 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-
-
 // Get login page
 router.get('/login', async (req, res) => {
     if (req.session.logged_in) {
