@@ -2,7 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Screenshot
-![Tech Blog Preview](/public/images/techblog-screenshot.png)
+![Tech Blog Preview](./public/images/techblog-screenshot.png)
 
 
 ## Description
