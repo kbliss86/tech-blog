@@ -34,11 +34,11 @@ router.post('/logout', (req, res) => {
     console.log("Reached the logout route");
     if (req.session.logged_in) {
         req.session.destroy(() => {
-            res.redirect('/login');
+            res.redirect('/home/login');
             // res.status(204).end();
         });
     } else {
-        res.redirect('/login');
+        res.redirect('/home/login');
         // res.status(404).end();
     }
 });

@@ -11,10 +11,10 @@
             <li><a href="/home">Home</a></li>
             <li><a href="/dashboard">Dashboard</a></li>
             {{#if logged_in}}
-            <li><a id="logout" href="/logout">Logout</a></li>
+            <li><a id="logout" href="#">Logout</a></li>
             {{else}}
-            <li><a href="/login">Login</a></li>
-            <li><a href="/signup">Sign Up</a></li>
+            <li><a href="/home/login">Login</a></li>
+            <li><a href="/home/signup">Sign Up</a></li>
             {{/if}}
         </ul>
     </nav>
